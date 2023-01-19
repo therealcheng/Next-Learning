@@ -1,9 +1,9 @@
 import Link from 'next/link';
 
-function Home() {
+function Home({ title }) {
   return (
     <div>
-      <h1>Home Page</h1>
+      <h1>{title}</h1>
       <Link href='/blog'>Blog</Link>
       <Link href='/product'>Product</Link>
     </div>
@@ -11,3 +11,11 @@ function Home() {
 }
 
 export default Home;
+
+export const getServerSideProps = async () => {
+  return {
+    props: {
+      title: 'Home Page!',
+    },
+  };
+};
